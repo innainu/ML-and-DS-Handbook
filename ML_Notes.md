@@ -105,9 +105,7 @@ iris = datasets.load_iris()
 
 
 
-<a id='math'></a>
-
-
+<a id='#math'></a>
 # Math
 
 ## Linear Algebra Review
@@ -471,7 +469,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_34_0.png)
+![png](ML_Notes_files/ML_Notes_33_0.png)
 
 
 #### Softplus Function:
@@ -493,7 +491,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_36_0.png)
+![png](ML_Notes_files/ML_Notes_35_0.png)
 
 
 #### Properties of Sigmoid ($\sigma$) and Softplus ($\varsigma$):
@@ -582,8 +580,7 @@ $$ p(a,b,c) = p(a)p(b|a)p(c|b)$$
 
       
 
-<a id='statistics'></a>
-
+<a id='#statistics'></a>
 # Statistics
 
 ## Sampling Statistics
@@ -676,7 +673,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_48_0.png)
+![png](ML_Notes_files/ML_Notes_46_0.png)
 
 
 #### Skew & Kurtosis
@@ -709,7 +706,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_50_0.png)
+![png](ML_Notes_files/ML_Notes_48_0.png)
 
 
 
@@ -2086,7 +2083,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_118_0.png)
+![png](ML_Notes_files/ML_Notes_116_0.png)
 
 
 #### Updating Beta Distribution
@@ -2110,7 +2107,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_120_0.png)
+![png](ML_Notes_files/ML_Notes_118_0.png)
 
 
 The green curve (posterior beta distribution) has a mean of .303. The beta distribution is good because we can incorporate what we expect the probability of sign-ups to be (prior beta distribution) into the current data we observe.
@@ -2179,7 +2176,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_126_0.png)
+![png](ML_Notes_files/ML_Notes_124_0.png)
 
 
 It's been 1 month since we started our experiment and we see that for version A of our website, 100 signed up out of 985 visitors, and for version B of our website, 78 signed up out of the 600 visitors. Let's update our prior belief using this new data for version A and B. 
@@ -2204,7 +2201,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_128_0.png)
+![png](ML_Notes_files/ML_Notes_126_0.png)
 
 
 Based on this, we see that website B cleary looks to be a winner here. It does better than both website A and the prior.
@@ -2282,7 +2279,7 @@ plt.show()
 
 
 
-![png](ML_Notes_files/ML_Notes_133_1.png)
+![png](ML_Notes_files/ML_Notes_131_1.png)
 
 
 Is version A or B better in this case? It seems that version B is slightly better, but by how much? We can try many different approaches to arrive to a conclusion: simulation of posterior draws, numerical integration, and closed form solutions.
@@ -2419,9 +2416,7 @@ print('higher bound', high_estimate)
 ### Bayesian Inference
 https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/
 
-<a id='ml'></a>
-
-
+<a id='#ml'></a>
 # ML
 ## Supervised ML
 
@@ -2623,9 +2618,7 @@ Instead of finding the nearest image, find the top-k nearest images. k is a hype
 
 
 
-<a id='appliedML'></a>
-
-
+<a id='#appliedML'></a>
 # Applied ML
 
 ## Feature Engineering
@@ -3048,9 +3041,7 @@ To put a model into production, you should:
 - Monitor how the model performs, AB-test, etc.
 
 
-<a id='data'></a>
-
-
+<a id='#data'></a>
 # Systems
 
 ## Data
