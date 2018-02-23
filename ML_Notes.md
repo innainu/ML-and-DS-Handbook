@@ -68,7 +68,7 @@ iris = datasets.load_iris()
 
 - [Reference Material](#reference)
 - [Math](#math)
-- [Stats](#stats)
+- [Stats](#statistics)
 - [ML](#ml)
 - [Applied ML](#appliedml)
 - [Data](#data)
