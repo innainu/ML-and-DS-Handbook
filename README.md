@@ -18,9 +18,7 @@ To make a pull-request:
 
 - Make your changes in the [ipython notebook](/ML_Notes.ipynb)
 
-- I've uploaded the ipython notebook as markdown for better version control, so next, run this script:
-
-- Make sure you have [nbconvert](https://nbconvert.readthedocs.io/en/latest/index.html) installed.
+- I've uploaded the ipython notebook as markdown for better version control, so next, run this script: (but make sure you have [nbconvert](https://nbconvert.readthedocs.io/en/latest/index.html) installed.)
 
 ``` sh convert_ipynb.sh ```
 
