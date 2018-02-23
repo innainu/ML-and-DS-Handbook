@@ -70,14 +70,15 @@ iris = datasets.load_iris()
 - [Math](#math)
 - [Stats](#stats)
 - [ML](#ml)
-- [Applied ML](#appliedML)
+- [Applied ML](#appliedml)
 - [Data](#data)
 
 
 
 
-<a id='reference'></a>
 
+
+<a id='reference'></a>
 # Reference Material
 
 ## General
@@ -105,7 +106,7 @@ iris = datasets.load_iris()
 
 
 
-<a id='#math'></a>
+<a id='math'></a>
 # Math
 
 ## Linear Algebra Review
@@ -580,7 +581,7 @@ $$ p(a,b,c) = p(a)p(b|a)p(c|b)$$
 
       
 
-<a id='#statistics'></a>
+<a id='statistics'></a>
 # Statistics
 
 ## Sampling Statistics
@@ -2416,7 +2417,7 @@ print('higher bound', high_estimate)
 ### Bayesian Inference
 https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/
 
-<a id='#ml'></a>
+<a id='ml'></a>
 # ML
 ## Supervised ML
 
@@ -2618,7 +2619,7 @@ Instead of finding the nearest image, find the top-k nearest images. k is a hype
 
 
 
-<a id='#appliedML'></a>
+<a id='appliedml'></a>
 # Applied ML
 
 ## Feature Engineering
@@ -3041,7 +3042,7 @@ To put a model into production, you should:
 - Monitor how the model performs, AB-test, etc.
 
 
-<a id='#data'></a>
+<a id='data'></a>
 # Systems
 
 ## Data
