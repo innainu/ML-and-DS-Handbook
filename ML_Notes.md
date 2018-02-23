@@ -66,16 +66,17 @@ iris = datasets.load_iris()
 
 **We intend for each topic has a TL;DR, then a more detailed definition and a coding example.**
 
-- Reference Material
-- Math
-- Stats
-- ML
-- Applied ML
-- Data
+- [Reference Material](#reference)
+- [Math](#math)
+- [Stats](#stats)
+- [ML](#ml)
+- [Applied ML](#appliedML)
+- [Data](#data)
 
 
 
 
+<a id='reference'></a>
 # Reference Material
 
 ## General
@@ -103,11 +104,12 @@ iris = datasets.load_iris()
 
 
 
+<a id='math'></a>
 # Math
 
 ## Linear Algebra Review
 
-from [chapter2(dl book)](http://www.deeplearningbook.org/contents/linear_algebra.html)
+[chapter 2(dl book)](http://www.deeplearningbook.org/contents/linear_algebra.html) as reference
 
 
 ### Eigenvectors, Eigenvalues and Eigendecomposition
@@ -569,6 +571,7 @@ http://cs231n.github.io/optimization-1/
 #### Genetic Algorithms
 #### Differential Evolution
 
+<a id='statistics'></a>
 # Statistics
 
 ## Sampling Statistics
@@ -2404,7 +2407,9 @@ print('higher bound', high_estimate)
 ### Bayesian Inference
 https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/
 
-# Supervised ML
+<a id='ml'></a>
+# ML
+## Supervised ML
 
 ## Linear Models
 
@@ -2604,6 +2609,7 @@ Instead of finding the nearest image, find the top-k nearest images. k is a hype
 
 
 
+<a id='appliedML'></a>
 # Applied ML
 
 ## Feature Engineering
@@ -2667,13 +2673,13 @@ Build a fixed length vocabulary $V$ from your corpus. We assign a score to each 
 
 Given some new text, we weight each word by its frequency in that text and with the inverse document frequency in a previously seen corpus.
 
-tf = $\frac{t_d}{\sum_{d' \in{N}}{t_{d'}}}$
+tf = $\frac{t_d}{\sum_{d' \in{N}}{t_{d'}}}$ \\
 
 - $t_d$ is the number of times term $t$ occurs in the document $d$. 
 - The denominator is the total number of terms in the document.
-- N is the number of documents.
+- N is the number of documents. \\
 
-idf = $ln{ \frac{N}{\text{Number of documents with term t in it}}} $
+idf = $ln{ \frac{N}{\text{Number of documents with term t in it}}} $ \\
 
 Each term gets a $tfidf = tf * idf$ score, and the vector representation of the text contains the tf-idf values for each word in the vocabulary.
 
@@ -3026,6 +3032,7 @@ To put a model into production, you should:
 - Monitor how the model performs, AB-test, etc.
 
 
+<a id='data'></a>
 # Systems
 
 ## Data
