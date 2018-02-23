@@ -77,6 +77,7 @@ iris = datasets.load_iris()
 
 
 <a id='reference'></a>
+
 # Reference Material
 
 ## General
@@ -105,6 +106,8 @@ iris = datasets.load_iris()
 
 
 <a id='math'></a>
+
+
 # Math
 
 ## Linear Algebra Review
@@ -260,6 +263,44 @@ print('Numpy reconstruction', C1.dot(D1.T)[0] + X.mean(axis=0))
     Acutal X[0] [ 5.1  3.5  1.4  0.2]
     Sklearn reconstruction [ 5.08718247  3.51315614  1.4020428   0.21105556]
     Numpy reconstruction [ 5.08718247  3.51315614  1.4020428   0.21105556]
+
+
+
+```
+## Numerical Methods
+[chapter4(dl book)]
+(http://www.deeplearningbook.org/contents/numerical.html)
+
+http://cs231n.github.io/optimization-1/
+
+#### Directional Derivative 
+
+### Convex Optimization
+
+#### Newton's method
+
+#### Simplex Algorithm - Linear Programming
+
+#### Quadratic Programming
+
+
+### Non-convex Optimization
+
+#### Finite Differences
+#### Gradient Descent
+#### Conjugate Gradient
+#### BFGS
+#### Hessian
+#### Genetic Algorithms
+#### Differential Evolution
+```
+
+
+      File "<ipython-input-1-35c507adfbdd>", line 1
+        [chapter4(dl book)]
+                        ^
+    SyntaxError: invalid syntax
+
 
 
 ## Probability  Review
@@ -430,7 +471,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_31_0.png)
+![png](ML_Notes_files/ML_Notes_34_0.png)
 
 
 #### Softplus Function:
@@ -452,7 +493,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_33_0.png)
+![png](ML_Notes_files/ML_Notes_36_0.png)
 
 
 #### Properties of Sigmoid ($\sigma$) and Softplus ($\varsigma$):
@@ -541,37 +582,8 @@ $$ p(a,b,c) = p(a)p(b|a)p(c|b)$$
 
       
 
-## Numerical Methods
-[chapter4(dl book)]
-(http://www.deeplearningbook.org/contents/numerical.html)
-
-http://cs231n.github.io/optimization-1/
-
-#### Directional Derivative 
-
-
-
-
-### Convex Optimization
-
-#### Newton's method
-
-#### Simplex Algorithm - Linear Programming
-
-#### Quadratic Programming
-
-
-### Non-convex Optimization
-
-#### Finite Differences
-#### Gradient Descent
-#### Conjugate Gradient
-#### BFGS
-#### Hessian
-#### Genetic Algorithms
-#### Differential Evolution
-
 <a id='statistics'></a>
+
 # Statistics
 
 ## Sampling Statistics
@@ -664,7 +676,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_47_0.png)
+![png](ML_Notes_files/ML_Notes_48_0.png)
 
 
 #### Skew & Kurtosis
@@ -697,7 +709,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_49_0.png)
+![png](ML_Notes_files/ML_Notes_50_0.png)
 
 
 
@@ -2074,7 +2086,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_117_0.png)
+![png](ML_Notes_files/ML_Notes_118_0.png)
 
 
 #### Updating Beta Distribution
@@ -2098,7 +2110,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_119_0.png)
+![png](ML_Notes_files/ML_Notes_120_0.png)
 
 
 The green curve (posterior beta distribution) has a mean of .303. The beta distribution is good because we can incorporate what we expect the probability of sign-ups to be (prior beta distribution) into the current data we observe.
@@ -2167,7 +2179,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_125_0.png)
+![png](ML_Notes_files/ML_Notes_126_0.png)
 
 
 It's been 1 month since we started our experiment and we see that for version A of our website, 100 signed up out of 985 visitors, and for version B of our website, 78 signed up out of the 600 visitors. Let's update our prior belief using this new data for version A and B. 
@@ -2192,7 +2204,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_127_0.png)
+![png](ML_Notes_files/ML_Notes_128_0.png)
 
 
 Based on this, we see that website B cleary looks to be a winner here. It does better than both website A and the prior.
@@ -2270,7 +2282,7 @@ plt.show()
 
 
 
-![png](ML_Notes_files/ML_Notes_132_1.png)
+![png](ML_Notes_files/ML_Notes_133_1.png)
 
 
 Is version A or B better in this case? It seems that version B is slightly better, but by how much? We can try many different approaches to arrive to a conclusion: simulation of posterior draws, numerical integration, and closed form solutions.
@@ -2408,6 +2420,8 @@ print('higher bound', high_estimate)
 https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/
 
 <a id='ml'></a>
+
+
 # ML
 ## Supervised ML
 
@@ -2610,6 +2624,8 @@ Instead of finding the nearest image, find the top-k nearest images. k is a hype
 
 
 <a id='appliedML'></a>
+
+
 # Applied ML
 
 ## Feature Engineering
@@ -3033,6 +3049,8 @@ To put a model into production, you should:
 
 
 <a id='data'></a>
+
+
 # Systems
 
 ## Data
