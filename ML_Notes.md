@@ -64,7 +64,7 @@ iris = datasets.load_iris()
 
 # Outline
 
-**We intend for each topic has a TL;DR, then a more detailed definition and a coding example.**
+**We intend for each topic to have a TL;DR, then a more detailed definition and a coding example.**
 
 - [Reference Material](#reference)
 - [Math](#math)
