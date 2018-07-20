@@ -1,12 +1,12 @@
 
 
-```
+```python
 %matplotlib inline
 from google.colab import files
 ```
 
 
-```
+```python
 import matplotlib.pyplot as plt
 import math
 import numpy as np
@@ -14,7 +14,7 @@ np.random.seed(5)
 ```
 
 
-```
+```python
 import scipy.stats as stats
 import random
 import math
@@ -23,7 +23,7 @@ import pandas as pd
 ```
 
 
-```
+```python
 from sklearn import decomposition
 from sklearn import datasets
 
@@ -156,7 +156,7 @@ Where
 Let's look at a coding example with eigendecomposition:
 
 
-```
+```python
 X = iris.data
 A = X.T.dot(X)  # a square matrix
 V = np.linalg.eig(A)
@@ -224,7 +224,7 @@ $\textbf{X}$ is our data with shape $R^{m,n}$. We want a function to approximate
 #### PCA Coding Example
 
 
-```
+```python
 # Get PCA with 2 components from Iris Data using sklearn
 X = iris.data
 
@@ -244,7 +244,7 @@ print('D shape is ', D.shape)
 
 
 
-```
+```python
 # Do it manually by getting eigendecomposition of X^T X
 Xm = X - X.mean(axis=0)
 d = np.linalg.eig(Xm.T.dot(Xm))
@@ -265,7 +265,7 @@ print('Numpy reconstruction', C1.dot(D1.T)[0] + X.mean(axis=0))
 
 
 
-```
+```python
 ## Numerical Methods
 [chapter4(dl book)]
 (http://www.deeplearningbook.org/contents/numerical.html)
@@ -319,7 +319,7 @@ $Cov(f(x), g(y)) = \mathrm{E}[ (f(x) - \mathrm{E}[f(x)]) (g(y) - \mathrm{E}[g(y)
  - 2 dependent variables can have 0 covariance.
 
 
-```
+```python
 # Compute covariance with numpy
 
 X = iris.data
@@ -456,7 +456,7 @@ $$\sigma(x) = \frac{1}{1 + \exp{(-x)}} $$
 The inverse of the sigmoidal function is the logit function $log(\frac{p}{1 - p})$.
 
 
-```
+```python
 def sigmoid(x):
   y = []
   for item in x:
@@ -478,7 +478,7 @@ plt.show()
 $$\varsigma(x) = log(1 + \exp(x))$$, sometimes used as an activation function in neural nets.
 
 
-```
+```python
  def soft_plus(x):
     y = []
     for item in x:
@@ -596,13 +596,13 @@ $$ p(a,b,c) = p(a)p(b|a)p(c|b)$$
 - Median: Middle value of sorted values, the 50th percentile.  This is a more robust statistic than mean, because it tends to resist effects of skew or outliers.
 
 
-```
+```python
 # change the index from numbers to the name of the car
 mtcars.index = mtcars['name']
 ```
 
 
-```
+```python
 # Mean:
 mtcars.mean(axis=0) # mean of each column
 mtcars.mean(axis=1) # mean of each row
@@ -633,7 +633,7 @@ q-Quantiles partition your data into q subsets of (nearly) equal sizes. The medi
  you can get the 25% (1st quantile), 75% (3rd quantile)
 
 
-```
+```python
 # Defined as the 'five num' summary:
 
 five_num = [mtcars["mpg"].quantile(0),   
@@ -660,7 +660,7 @@ mtcars["mpg"].quantile(0.75) - mtcars["mpg"].quantile(0.25)
 
 
 
-```
+```python
 # A boxplot plots these quantities, i.e.
 mtcars.boxplot(column='mpg', return_type='axes', figsize=(8,8))
 
@@ -684,7 +684,7 @@ plt.show()
 - Mean, Variance, and Standard Deviation are all susceptible to influece of skew and outliers.
 
 
-```
+```python
 norm_data = np.random.normal(size=100000)
 skewed_data = np.concatenate((np.random.normal(size=35000)+2, 
                              np.random.exponential(size=65000)), 
@@ -711,7 +711,7 @@ plt.show()
 
 
 
-```
+```python
 print('skew of graphs')
 print(data_df.skew())
 print('\n')
@@ -747,7 +747,7 @@ equals +1 in perfectly increasing linear relationship, equals -1 in perfectly de
 
 
 
-```
+```python
 # Computes all pairwise correlation scores
 mtcars.corr(method='pearson')
 ```
@@ -948,7 +948,7 @@ mtcars.corr(method='pearson')
 
 
 
-```
+```python
 mpg = mtcars['mpg']
 cyl = mtcars['cyl']
 
@@ -979,7 +979,7 @@ Let's make some fake data below, and see that re-sampling many samples from a po
 
 
 
-```
+```python
 np.random.seed(3)
 
 mu = 10
@@ -1026,7 +1026,7 @@ What if we now take standard deviations of our samples to estimate the populatio
 
 
 
-```
+```python
 np.random.seed(3)
 
 mu = 10
@@ -1063,6 +1063,15 @@ See [Bessel's correction](https://en.wikipedia.org/wiki/Bessel%27s_correction) f
 
 
 
+##### Sufficient Statistics
+
+A statistic is sufficient with respect to an unknown population parameter and a data sample if no other statistic on the data sample can give us additional information about the population parameter.
+
+The probability of a population parameter given the sufficient statistics is independent of the data sample. In other words, once we calculate the sufficient statistics, we can throw out the data, since no additional statistic from the data will help us estimate the population parameter in a better way.
+
+For a gaussian generated data, the sufficient statistics to estimate the distribution are the mean and variance. If we are trying to estimate a population mean, the sufficient statistic would be the sample mean.
+
+
 #### Confidence Intervals Around Sample Mean
 
 TLDR: You should add a margin of error to your point estimate to create a "confidence interval."
@@ -1077,7 +1086,7 @@ Let's get a 95% confidence interval for the mean sample age point estimate:
 
 
 
-```
+```python
 #create population
 population1 = stats.poisson.rvs(mu=35, size=50000)
 population2 = stats.poisson.rvs(mu=35, size=100000)
@@ -1122,14 +1131,14 @@ So we can use the $t$-critical value to create our confidence interval around th
 In the example below, we show how to use the t-distribution to get a confidence interval around a sample mean with unknown $\sigma$ of the population.
 
 
-```
+```python
 sample_size = 50
 sample_ages = np.random.choice(a=population, size=sample_size)
 sample_mean = sample_ages.mean()
 ```
 
 
-```
+```python
 # actually, we are getting t for q = .975 and q = .025
 # we are actually doing mu + moe(q=0.025) and mu + moe (q=0.975)
 t = stats.t.ppf(q=.975, df=sample_size - 1)
@@ -1158,7 +1167,7 @@ Let's look at an example: let's say I know the standard deviation of some true p
 
 
 
-```
+```python
 # you want your confidence interval to be within .1 unit of the actual mean
 moe = 0.1
 # for 95% confidence interval:
@@ -1175,7 +1184,7 @@ print('The number of samples would be ', ((z * sigma) / moe) ** 2)
 
 
 
-```
+```python
 # Let's show that this sample size gives us the correct confidence interval
 mu = 2
 sigma = 1
@@ -1223,7 +1232,7 @@ Sample mean $\bar{x}=40.3$. We want to know the distribution of $\delta = \bar{x
 
 
 
-```
+```python
 # 1. Perform resampling:
 sample_data = np.array([30,37,36,43,42,43,43,46,41,42])
 x_bar = np.mean(sample_data)
@@ -1240,7 +1249,7 @@ delta_star = bootstrapped_x_bars - x_bar
 ```
 
 
-```
+```python
 # 2. Now we can get the 80th percentile of delta_star distribution
 lower_bound_int = delta_star[int(bootstrap_samples_n * .1) - 1]
 upper_bound_int = delta_star[int(bootstrap_samples_n * .9) - 1]
@@ -1295,13 +1304,13 @@ That means that:
 - For the ith round, the probability we keep the ith item coming in is $\frac{100}{i}$. The probability any element will be removed from the reservoir in that round is $\frac{1}{i}$, and the probability we will keep any item is $\frac{100}{i}$.
 
 
-```
+```python
 from collections import Counter
 import numpy as np
 ```
 
 
-```
+```python
 def reservoir_alg(res_capacity=10, stream_size=100):
   # For this example, let's say the reservoir is already filled to capacity
   reservoir = []
@@ -1318,7 +1327,7 @@ def reservoir_alg(res_capacity=10, stream_size=100):
 ```
 
 
-```
+```python
 # Now let's run this 10,000 times and see if we get uniform distribution
 # over the 100 items we see in total
 counts = Counter()
@@ -1333,7 +1342,7 @@ probs = {x:counts[x] / num_sim for x in counts}
 ```
 
 
-```
+```python
 # Indeed we see that each has a ~1/stream_size probability of occuring!
 probs
 ```
@@ -1497,7 +1506,7 @@ Let's say we run the same test 100 times, and the test has a significance level 
 See the example below related to Type-1 error. We sample from a distribution and test the Null Hypothesis 40,000 times with a 0.05 significance level, and we show that we get 5% chance of getting a Type-1 Error.
 
 
-```
+```python
 # Type-1 Error Example
 null_mu = 10
 null_std = 6
@@ -1558,13 +1567,13 @@ Let's say your CEO says that people open the company's app 2 times a day. You wa
 At a significance level $\alpha=0.05$, should we reject the null hypothesis and tell the CEO that the app open-rate has increased?
 
 
-```
+```python
 from scipy.stats import norm
 import scipy.stats as stats
 ```
 
 
-```
+```python
 # Use a z test bc we have normal data and a known variance:
 data = np.array([1, 2, 3, 6, 0])
 N = len(data)
@@ -1587,7 +1596,7 @@ z
 
 
 
-```
+```python
 # Find P(Z > z)
 print('Probability that we get this mean open-rate if the Null Hypothesis is true')
 print(1 - stats.norm.cdf(z))
@@ -1645,7 +1654,7 @@ At a significance level $\alpha=0.05$, should we reject the null hypothesis and 
 
 
 
-```
+```python
 # Use a t test because we don't know mean or population variance:
 data = np.array([1, 2, 0, 1, 0])
 N = len(data)
@@ -1669,7 +1678,7 @@ t
 
 
 
-```
+```python
 # p-value = P(|T| > |t|) = 1 - t_dist(t, df)
 df = N - 1
 p_value = 2 * (1 -  stats.t.cdf(abs(t), df))
@@ -1712,7 +1721,7 @@ Suppose you write a new prompt for your donation website that you think will inc
 
 
 
-```
+```python
 
 N1 = 800
 N2 = 779
@@ -1745,7 +1754,7 @@ print('p', p_value)
 
 
 
-```
+```python
 # we can also get the same result using stats.ttest_ind_from_stats
 t, p = stats.ttest_ind_from_stats(mu1, std1, N1, mu2, std2, N2)
 
@@ -1826,7 +1835,7 @@ From this table, we can take the sample of total sign-ups and estimate what prop
 
 
 
-```
+```python
 # let's calculate the test-statistic manually
 observed = [135, 170, 365, 328]
 expected = [152.81, 152.19, 347.19, 345.81]
@@ -1839,7 +1848,7 @@ df = (2-1)*(2-1)
 
 
 
-```
+```python
 # stats.chisquare is equivalent as the above calculation
 stats.chisquare(observed, expected, ddof=df)
 ```
@@ -1908,7 +1917,7 @@ As sample size increases, power increases. We need more data to keep the same po
 - Our significan level decreases
 
 
-```
+```python
 # https://stackoverflow.com/questions/15204070/is-there-a-python-scipy-function-to-determine-parameters-needed-to-obtain-a-ta
 from scipy.stats import norm, zscore
 
@@ -1928,7 +1937,7 @@ def sample_power_difftest(d, s, power=0.8, sig=0.05):
 ```
 
 
-```
+```python
 sample_power_probtest(0.5, 0.75, power=0.9)
 ```
 
@@ -1940,7 +1949,7 @@ sample_power_probtest(0.5, 0.75, power=0.9)
 
 
 
-```
+```python
 import statsmodels.stats.api as sms
 es = sms.proportion_effectsize(0.5, 0.75)
 ```
@@ -1950,7 +1959,7 @@ es = sms.proportion_effectsize(0.5, 0.75)
 
 
 
-```
+```python
 sms.NormalIndPower().solve_power(es, power=0.9, alpha=0.05, ratio=1)
 ```
 
@@ -2045,7 +2054,7 @@ With algebra, we can get
 Let's say we expect around 27% of our users to sign up to our newsletter from a button on the home page from last quarter results, and with a variance of 0.00065482. We can model this using a beta distribution below:
 
 
-```
+```python
 def _return_params_beta(mean, var):
   alpha = (((1 - mean) / var) - (1 / mean)) * mean**2
   beta = alpha * (1 / mean - 1)
@@ -2053,7 +2062,7 @@ def _return_params_beta(mean, var):
 ```
 
 
-```
+```python
 _return_params_beta(.27, 0.00065482)
 ```
 
@@ -2065,7 +2074,7 @@ _return_params_beta(.27, 0.00065482)
 
 
 
-```
+```python
 a, b = 81, 219
 # we can get sigma using scipy
 sigma = stats.beta.stats(81, 219, moments='mvsk')[1]
@@ -2073,7 +2082,7 @@ sigma = stats.beta.stats(81, 219, moments='mvsk')[1]
 ```
 
 
-```
+```python
 # Choose alpha and beta based on mean and sigma
 a, b = 81, 219
 beta_dist = stats.beta(a, b)
@@ -2084,7 +2093,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_116_0.png)
+![png](ML_Notes_files/ML_Notes_117_0.png)
 
 
 #### Updating Beta Distribution
@@ -2098,7 +2107,7 @@ Halfway into the second quarter, we gather some stats and see that out of 300 ne
 
 
 
-```
+```python
 a2, b2 = 81 + 100, 219 + 200
 beta_dist2 = stats.beta(a2, b2)
 x2 = np.linspace(0, 1, 1002)[1:-1]
@@ -2108,7 +2117,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_118_0.png)
+![png](ML_Notes_files/ML_Notes_119_0.png)
 
 
 The green curve (posterior beta distribution) has a mean of .303. The beta distribution is good because we can incorporate what we expect the probability of sign-ups to be (prior beta distribution) into the current data we observe.
@@ -2147,7 +2156,7 @@ You've designed 2 different sign-up buttons, and want to test them. So, you crea
 
 
 
-```
+```python
 %matplotlib inline
 import numpy as np
 from scipy import stats
@@ -2155,7 +2164,7 @@ from matplotlib import pyplot as plt
 ```
 
 
-```
+```python
 alpha_0, beta_0 = _return_params_beta(mean=.15, var=.00015)
 alpha_0, beta_0
 ```
@@ -2168,7 +2177,7 @@ alpha_0, beta_0
 
 
 
-```
+```python
 
 beta_dist = stats.beta(alpha_0, beta_0)
 x = np.linspace(0, 1, 1002)[1:-1]
@@ -2177,13 +2186,13 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_124_0.png)
+![png](ML_Notes_files/ML_Notes_125_0.png)
 
 
 It's been 1 month since we started our experiment and we see that for version A of our website, 100 signed up out of 985 visitors, and for version B of our website, 78 signed up out of the 600 visitors. Let's update our prior belief using this new data for version A and B. 
 
 
-```
+```python
 alpha_A, beta_A = alpha_0 + 100, beta_0 + 885
 alpha_B, beta_B = alpha_0 + 78, beta_0 + 522
 
@@ -2202,7 +2211,7 @@ plt.show()
 ```
 
 
-![png](ML_Notes_files/ML_Notes_126_0.png)
+![png](ML_Notes_files/ML_Notes_127_0.png)
 
 
 Based on this, we see that website B cleary looks to be a winner here. It does better than both website A and the prior.
@@ -2217,7 +2226,7 @@ TLDR: A way to summarize and express uncertainty in our posterior distribution, 
 In the example above, how do we quantify our belief that button B is better? We could find website B's 95% credible interval by using the quantile of the beta distribution:
 
 
-```
+```python
 print('average stats', 78/(522+78))
 print('low', stats.beta.ppf(.025, alpha_B, beta_B))
 print('high', stats.beta.ppf(.975, alpha_B, beta_B))
@@ -2251,7 +2260,7 @@ for version A of our website, 185 signed up out of 970 visitors, and for version
 
 
 
-```
+```python
 alpha_A, beta_A = alpha_0 + 185, beta_0 + 785
 alpha_B, beta_B = alpha_0 + 220, beta_0 + 850
 print(alpha_0, beta_0)
@@ -2280,7 +2289,7 @@ plt.show()
 
 
 
-![png](ML_Notes_files/ML_Notes_131_1.png)
+![png](ML_Notes_files/ML_Notes_132_1.png)
 
 
 Is version A or B better in this case? It seems that version B is slightly better, but by how much? We can try many different approaches to arrive to a conclusion: simulation of posterior draws, numerical integration, and closed form solutions.
@@ -2294,7 +2303,7 @@ Let's use the posterior distributions to simulate 1 million draws, then compare 
 
 
 
-```
+```python
 
 sim_size = 1000000
 A_sim = stats.beta.rvs(alpha_A, beta_A, size=sim_size)
@@ -2335,7 +2344,7 @@ where $B$ is the beta function.
 
 
 
-```
+```python
 # use log beta because beta function can be less numerically stable
 
 import math
@@ -2365,7 +2374,7 @@ $P(B<A) = P(B-A < 0) = P(X < 0)$ where $X$ is normally distributed with mean $\m
 Using the last method, we can calculate a credible interval for the difference in the two websites, by assuming the difference is normal:
 
 
-```
+```python
 def _return_mu_var(a, b):
   mu = a / (a + b)
   var = a * b / ((a + b) ** 2 * (a + b + 1))
@@ -2796,7 +2805,7 @@ Since $EH$ is the sum of the output vectors of all words in the vocabulary weigh
 Silly example that isn't real but demonstrates the math, let's check that 2 words get more similar:
 
 
-```
+```python
 import numpy as np
 
 document = "Some polar bears in the Arctic are shedding pounds during the time they should be beefing up, a new study shows. It’s the climate change diet and scientists say it’s not good. They blame global warming for the dwindling ice cover on the Arctic Ocean that bears need for hunting seals each spring."
@@ -2816,7 +2825,7 @@ sentence1_tknzd = sentence1.split(' ')
 ```
 
 
-```
+```python
 # Initialize weights matrix W, and W'
 # let's give only 20 features for now:
 vocab_size = len(doc_dict) + 1
@@ -2832,7 +2841,7 @@ win_size = 3
 ```
 
 
-```
+```python
 # Check distance between polar and bears
 polar_vec = W[doc_dict['polar']]
 bears_vec = W[doc_dict['bears']]
@@ -2847,7 +2856,7 @@ cosine_similarity(polar_vec.reshape(1, num_features), bears_vec.reshape(1, num_f
 
 
 
-```
+```python
 # Go through 10 epochs:
 for x in range(10):
   for target_idx in range(0, len(sentence1_tknzd)):
@@ -2891,7 +2900,7 @@ for x in range(10):
 ```
 
 
-```
+```python
 polar_vec2 = W[doc_dict['polar']]
 bears_vec2 = W[doc_dict['bears']]
 cosine_similarity(polar_vec2.reshape(1, num_features), bears_vec2.reshape(1, num_features))
@@ -3040,6 +3049,13 @@ To put a model into production, you should:
 - Store Application logs and Service logs
 - Create alerting based on latency, error counts, etc.
 - Monitor how the model performs, AB-test, etc.
+
+
+#### No Free Lunch Theorem
+
+"if an algorithm performs well on a certain class of problems then it necessarily pays for that with degraded performance on the set of all remaining problems" - https://en.wikipedia.org/wiki/No_free_lunch_theorem
+
+Any elevated performance of an algorithm on one class of problems is offset by performance on another class of problems, if we look at set of all optimization problems we could encounter. For example, cross-validation won't give us a more generalizable solution compared to random search on all class of problems. Luckily, the set of problems we encounter seems to be a subset of all problems for which we can make prior assumptions that do tend to generalize.
 
 
 <a id='data'></a>
